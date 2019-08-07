@@ -2,11 +2,14 @@
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/domain/Perfil.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/datatables/DatatablesColunas.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/domain/Especialidade.java
+/Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/repository/UsuarioRepository.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/web/controller/HomeController.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/datatables/Datatables.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/domain/Paciente.java
+/Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/config/SecurityConfig.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/domain/Agendamento.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/domain/Usuario.java
+/Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/service/UsuarioService.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/domain/PerfilTipo.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/domain/Medico.java
 /Users/andersonnogueira/git/security-curso/demo-security/src/main/java/com/mballem/curso/security/DemoSecurityApplication.java
