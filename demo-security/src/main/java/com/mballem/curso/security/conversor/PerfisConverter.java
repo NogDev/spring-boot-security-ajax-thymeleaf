@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mballem.curso.security;
+package com.mballem.curso.security.conversor;
 
 import java.util.ArrayList;
 import java.util.List;
