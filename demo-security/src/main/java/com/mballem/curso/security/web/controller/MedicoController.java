@@ -36,7 +36,7 @@ public class MedicoController {
 		service.salvar(medico);
 		attr.addFlashAttribute("sucesso", "Operação realizada com sucesso");
 		attr.addFlashAttribute("medico", medico);
-		return "redirect:medico/dados";
+		return "redirect:/medicos/dados";
 	}
 	
 	@PostMapping({"/editar"})
@@ -44,6 +44,6 @@ public class MedicoController {
 		service.editar(medico);
 		attr.addFlashAttribute("sucesso", "Operação realizada com sucesso");
 		attr.addFlashAttribute("medico", medico);
-		return "redirect:medico/dados";
+		return "redirect:/medicos/dados";
 	}
 }
