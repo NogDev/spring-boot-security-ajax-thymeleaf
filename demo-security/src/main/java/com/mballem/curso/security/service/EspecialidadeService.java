@@ -4,6 +4,7 @@
 package com.mballem.curso.security.service;
 
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,33 +28,38 @@ public class EspecialidadeService {
 
 	@Autowired
 	private EspecialidadeRepository repository;
-	
+
 	@Autowired
 	private Datatables datatables;
-	
-	@Transactional(readOnly=false)
+
+	@Transactional(readOnly = false)
 	public void salvar(Especialidade especialidade) {
 		repository.save(especialidade);
 	}
-	
+
 	@Transactional
 	public Map<String, Object> buscarEspecialidade(HttpServletRequest request) {
-		
+
 		datatables.setRequest(request);
 		datatables.setColunas(DatatablesColunas.ESPECIALIDADES);
-		Page<?> page = datatables.getSearch().isEmpty()
-				? repository.findAll(datatables.getPageable())
+		Page<?> page = datatables.getSearch().isEmpty() ? repository.findAll(datatables.getPageable())
 				: repository.findAllByTitulo(datatables.getSearch(), datatables.getPageable());
 		return datatables.getResponse(page);
 	}
-	
+
 	@Transactional
 	public Especialidade buscarPorId(Long id) {
 		return repository.findById(id).get();
-	} 
-	
-	@Transactional(readOnly=false)
+	}
+
+	@Transactional(readOnly = false)
 	public void remover(Long id) {
 		repository.deleteById(id);
+	}
+
+	@Transactional
+	public List<String> buscarEspecialidadeByTermo(String termo) {
+
+		return repository.findEspecialidadesByTermo(termo);
 	}
 }
