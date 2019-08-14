@@ -6,6 +6,7 @@ package com.mballem.curso.security.service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -61,5 +62,9 @@ public class EspecialidadeService {
 	public List<String> buscarEspecialidadeByTermo(String termo) {
 
 		return repository.findEspecialidadesByTermo(termo);
+	}
+
+	public Set<Especialidade> buscarPorTitulos(String[] titulos) {
+		return repository.findByTitulos(titulos);
 	}
 }
