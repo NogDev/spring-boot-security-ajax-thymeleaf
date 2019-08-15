@@ -120,7 +120,7 @@ public class UsuarioController {
 	
 	@PostMapping("/confirmar/senha")
 	public String editarSenha(@RequestParam("senha1") String s1, @RequestParam("senha2") String s2,
-							  @RequestParam("senha1") String s3, @AuthenticationPrincipal User user,
+							  @RequestParam("senha3") String s3, @AuthenticationPrincipal User user,
 							  RedirectAttributes attr) {
 		if (!s1.equals(s2)) {
 			attr.addFlashAttribute("falha", "Senhas não conferem, tente novamente");
