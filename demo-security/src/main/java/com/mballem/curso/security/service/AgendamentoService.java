@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mballem.curso.security.domain.Agendamento;
 import com.mballem.curso.security.domain.Horario;
 import com.mballem.curso.security.repository.AgendamentoRepository;
 
@@ -28,6 +29,11 @@ public class AgendamentoService {
 	public List<Horario> buscarHorariosNaoAgendadosPorMedicosIdEData(Long id, LocalDate data) {
 		
 		return repository.findByMedicoIdAndDataNotHorarioAgendado(id, data);
+	}
+	
+	@Transactional(readOnly=false)
+	public void salvar(Agendamento agendamento) {
+		repository.save(agendamento);
 	}
 
 }
