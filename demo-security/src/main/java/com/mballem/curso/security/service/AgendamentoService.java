@@ -83,4 +83,9 @@ public class AgendamentoService {
 				.orElseThrow(() -> new AcessoNegadoException("Acesso negado ao usuário: "+email));
 	}
 
+	@Transactional(readOnly=false)
+	public void remover(Long id) {
+		repository.deleteById(id);
+	}
+
 }
