@@ -18,6 +18,7 @@ import com.mballem.curso.security.datatables.Datatables;
 import com.mballem.curso.security.datatables.DatatablesColunas;
 import com.mballem.curso.security.domain.Agendamento;
 import com.mballem.curso.security.domain.Horario;
+import com.mballem.curso.security.exception.AcessoNegadoException;
 import com.mballem.curso.security.repository.AgendamentoRepository;
 import com.mballem.curso.security.repository.projection.HistoricoPaciente;
 
@@ -68,12 +69,18 @@ public class AgendamentoService {
 	}
 
 	@Transactional(readOnly=false)
-	public void editar(Agendamento agendamento, String username) {
-		Agendamento ag = buscarPorId(agendamento.getId());
+	public void editar(Agendamento agendamento, String email) {
+		Agendamento ag = buscarPorIdEUsuario(agendamento.getId(), email);
 		ag.setDataConsulta(agendamento.getDataConsulta());
 		ag.setEspecialidade(agendamento.getEspecialidade());
 		ag.setHorario(agendamento.getHorario());
 		ag.setMedico(agendamento.getMedico());
+	}
+	
+	@Transactional
+	public Agendamento buscarPorIdEUsuario(Long id, String email) {
+		return repository.findByIdAndPacienteOrMedicoEmail(id, email)
+				.orElseThrow(() -> new AcessoNegadoException("Acesso negado ao usuário: "+email));
 	}
 
 }
