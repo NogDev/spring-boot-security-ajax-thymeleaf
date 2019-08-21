@@ -6,6 +6,7 @@ package com.mballem.curso.security.web.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -150,7 +151,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/cadastro/paciente/salvar")
-	public String salvarCadastroPaciente(Usuario usuario, BindingResult result) {
+	public String salvarCadastroPaciente(Usuario usuario, BindingResult result) throws MessagingException {
 		try {
 			service.salvarCadastroPaciente(usuario);
 		} catch (DataIntegrityViolationException ex) {
@@ -160,16 +161,18 @@ public class UsuarioController {
 		return "redirect:/u/cadastro/realizado";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@GetMapping("/confirmacao/cadastro")
+	public String respostaConfirmacaoCadastroPaciente(@RequestParam("codigo") String codigo,
+			RedirectAttributes attr) {
+		
+		service.ativarCadastroPaciente(codigo);
+		
+		attr.addFlashAttribute("alerta","sucesso");
+		attr.addFlashAttribute("titulo","Cadastro ativado!");
+		attr.addFlashAttribute("texto","Parabéns, seu cadastro está ativo.");
+		attr.addFlashAttribute("subtexto","Siga com seu login/senha.");
+		
+		return "redirect:/login";
+	}
 }
 
