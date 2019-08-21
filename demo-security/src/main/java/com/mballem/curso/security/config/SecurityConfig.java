@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/", "/home").permitAll()
 			.antMatchers("/u/novo/cadastro", "/u/cadastro/realizado", "/u/cadastro/paciente/salvar").permitAll()
 			.antMatchers("/u/confirmacao/cadastro").permitAll()
+			.antMatchers("/u/p/**").permitAll()
 			
 			
 			//acessos privados admin
